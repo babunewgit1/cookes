@@ -1,0 +1,10 @@
+/* Auth Forms Styling */
+#authFormsWrapper {
+  display: none;
+}
+
+#loginForm,
+#signupForm,
+#forgotPasswordForm {
+  display: none;
+}

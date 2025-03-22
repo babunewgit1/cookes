@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Authentication System</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="styles/styles.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="container">
+        <a class="navbar-brand" href="#">Auth System</a>
+        <div class="nav-right">
+          <span id="userEmail" style="display: none"></span>
+          <button id="requestBookingBtn" class="btn-primary">
+            Request Booking
+          </button>
+          <button
+            id="logoutBtn"
+            class="btn-outline-danger"
+            style="display: none"
+          >
+            Logout
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Toast Container -->
+    <div class="toast-container">
+      <div id="notificationToast" class="toast" role="alert">
+        <div class="toast-header">
+          <strong id="toastTitle">Notification</strong>
+          <button type="button" class="btn-close" aria-label="Close">×</button>
+        </div>
+        <div class="toast-body" id="toastMessage"></div>
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- Auth Forms Wrapper -->
+      <div id="authFormsWrapper">
+        <!-- Login Form -->
+        <div id="loginForm" class="auth-form">
+          <h2>Login</h2>
+          <form>
+            <div class="form-group">
+              <label for="loginEmail" class="form-label">Email address</label>
+              <input
+                type="email"
+                class="form-control"
+                id="loginEmail"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="loginPassword" class="form-label">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="loginPassword"
+                required
+              />
+            </div>
+            <button type="submit">Login</button>
+            <div class="form-links">
+              <a href="#" id="showForgotPassword">Forgot Password?</a>
+              <p>
+                Don't have an account?
+                <a href="#" id="showSignup">Create Account</a>
+              </p>
+            </div>
+          </form>
+        </div>
+
+        <!-- Signup Form -->
+        <div id="signupForm" class="auth-form" style="display: none">
+          <h2>Create Account</h2>
+          <form>
+            <div class="form-group">
+              <label for="signupEmail" class="form-label">Email address</label>
+              <input
+                type="email"
+                class="form-control"
+                id="signupEmail"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="signupPassword" class="form-label">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="signupPassword"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="confirmPassword" class="form-label"
+                >Confirm Password</label
+              >
+              <input
+                type="password"
+                class="form-control"
+                id="confirmPassword"
+                required
+              />
+            </div>
+            <button type="submit">Sign Up</button>
+            <div class="form-links">
+              <p>
+                Already have an account? <a href="#" id="showLogin">Login</a>
+              </p>
+            </div>
+          </form>
+        </div>
+
+        <!-- Forgot Password Form -->
+        <div id="forgotPasswordForm" class="auth-form" style="display: none">
+          <h2>Reset Password</h2>
+          <form>
+            <div class="form-group">
+              <label for="resetEmail" class="form-label">Email address</label>
+              <input
+                type="email"
+                class="form-control"
+                id="resetEmail"
+                required
+              />
+            </div>
+            <button type="submit">Reset Password</button>
+            <div class="form-links">
+              <a href="#" id="backToLogin">Back to Login</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
+    <script src="script/utils.js"></script>
+    <script src="script/toast.js"></script>
+    <script src="script/form.js"></script>
+    <script src="script/signup.js"></script>
+    <script src="script/login.js"></script>
+    <script src="script/booking.js"></script>
+  </body>
+</html>
