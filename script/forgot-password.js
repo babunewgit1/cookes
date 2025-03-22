@@ -10,12 +10,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
   forgotPasswordForm.addEventListener("submit", async (e) => {
     e.preventDefault();
+    console.log("Forgot password form submitted");
 
     const email = document.getElementById("resetEmail").value;
+    console.log("Attempting to reset password for email:", email);
 
     try {
+      console.log("Making API request to reset password...");
       const response = await fetch(
-        "https://operators-dashboard.bubbleapps.io/api/1.1/wf/webflow_reset_password",
+        "https://operators-dashboard.bubbleapps.io/api/1.1/wf/webflow_forgotpassword",
         {
           method: "POST",
           headers: {
@@ -28,8 +31,6 @@ document.addEventListener("DOMContentLoaded", () => {
       );
 
       const data = await response.json();
-      console.log("Reset password response:", data);
-
       if (response.ok) {
         toastTitle.textContent = "Success";
         toastMessage.textContent =
@@ -37,10 +38,8 @@ document.addEventListener("DOMContentLoaded", () => {
         toast.show();
         // Clear the form
         forgotPasswordForm.reset();
-        // Switch to login form
-        document.getElementById("forgotPasswordForm").style.display = "none";
-        document.getElementById("loginForm").style.display = "block";
       } else {
+        console.error("Reset password failed:", data);
         toastTitle.textContent = "Error";
         toastMessage.textContent =
           "Password reset failed: " + (data.message || "Unknown error");

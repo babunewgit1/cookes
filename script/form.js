@@ -51,16 +51,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  forgotPasswordForm.querySelector("form").addEventListener("submit", (e) => {
-    e.preventDefault();
-    const email = document.getElementById("resetEmail").value;
-
-    // Here you would typically make an API call to reset password
-    console.log("Password reset requested for:", email);
-    alert("Password reset instructions have been sent to your email.");
-    showForm(loginForm);
-  });
-
   // Logout handler
   logoutBtn.addEventListener("click", () => {
     // Here you would typically clear session/local storage
