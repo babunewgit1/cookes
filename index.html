@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Authentication System</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="styles/styles.css" />
+
+    <style>
+      .aircraft .container {
+        max-width: 1200px;
+        margin: auto;
+      }
+
+      .aircreaft_wrapper {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
+      }
+
+      .ac_item {
+        text-align: center;
+        background-color: #fff;
+        border-radius: 12px;
+        box-shadow: 0px 0px 5px 0px rgba(0,0,0,.6);
+        padding: 30px 10px;
+      }
+    </style>
+  </head>
+
+    <nav class="navbar">
+      <div class="container">
+        <a class="navbar-brand" href="#">Auth System</a>
+        <div class="nav-right">
+          <span id="userEmail" style="display: none"></span>
+          <button id="requestBookingBtn" class="btn-primary">
+            Request Booking
+          </button>
+          <button
+            id="logoutBtn"
+            class="btn-outline-danger"
+            style="display: none"
+          >
+            Logout
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Toast Container -->
+    <div class="toast-container">
+      <div id="notificationToast" class="toast" role="alert">
+        <div class="toast-header">
+          <strong id="toastTitle">Notification</strong>
+          <button type="button" class="btn-close" aria-label="Close">×</button>
+        </div>
+        <div class="toast-body" id="toastMessage"></div>
+      </div>
+    </div>
+
+    <!-- aircraft area start -->
+
+    <div class="aircraft">
+      <div class="container">
+        <div class="aircreaft_wrapper">
+          <div class="ac_item">
+            <h2>aircraft one</h2>
+            <a data-flightrequestid="1742728399300x262501901116835000" data-type="market" data-aircraftid="1509154758168x774198656517537800" href="#">Book Now</a>
+          </div>
+          <div class="ac_item">
+            <h2>aircraft two</h2>
+            <a class="bookinglink" data-flightrequestid="1742728399300x262501901116835000" data-type="market" data-aircraftid="1535137607364x801912770739830800" href="#">Book Now</a>
+          </div>
+          <div class="ac_item">
+            <h2>aircraft three</h2>
+            <a class="bookinglink" data-flightrequestid="1742728399300x262501901116835000" data-type="market" data-aircraftid="1536703364111x235487097971015700" href="#">Book Now</a>
+          </div>
+          <div class="ac_item">
+            <h2>aircraft four</h2>
+            <a class="bookinglink" data-flightrequestid="1742728399300x262501901116835000" data-type="market" data-aircraftid="1537214279398x983327741119037400" href="#">Book Now</a>
+          </div>
+          <div class="ac_item">
+            <h2>aircraft five</h2>
+            <a class="bookinglink" data-flightrequestid="1742728399300x262501901116835000" data-type="market" data-aircraftid="1548090766348x520944667412398100" href="#">Book Now</a>
+          </div>
+          <div class="ac_item">
+            <h2>aircraft six</h2>
+            <a class="bookinglink" data-flightrequestid="1742728399300x262501901116835000" data-type="market" data-aircraftid="1549573569699x834432121923174400" href="#">Book Now</a>
+          </div>
+          <div class="ac_item">
+            <h2>aircraft seven</h2>
+            <a class="bookinglink" data-flightrequestid="1742728399300x262501901116835000" data-type="market" data-aircraftid="1620150423328x777783897209962500" href="#">Book Now</a>
+          </div>
+          <div class="ac_item">
+            <h2>aircraft eight</h2>
+            <a class="bookinglink" data-flightrequestid="1742728399300x262501901116835000" data-type="market" data-aircraftid="1617246057853x146137685659222000" href="#">Book Now</a>
+          </div>
+          <div class="ac_item">
+            <h2>aircraft nine</h2>
+            <a class="bookinglink" data-flightrequestid="1742728399300x262501901116835000" data-type="market" data-aircraftid="1613679212159x278617516663373820" href="#">Book Now</a>
+          </div>
+          <div class="ac_item">
+            <h2>aircraft ten</h2>
+            <a class="bookinglink" data-flightrequestid="1742728399300x262501901116835000" data-type="market" data-aircraftid="1604237824622x625837431513415700" href="#">Book Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- aircraft area end -->
+
+    <div class="container">
+      <div id="authFormsWrapper" class="popup_wrapperx">
+        <div id="loginForm" class="auth-form">
+          <h2>Login</h2>
+          <form>
+            <div class="form-group">
+              <label for="loginEmail" class="form-label">Email address</label>
+              <input
+                type="email"
+                class="form-control"
+                id="loginEmail"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="loginPassword" class="form-label">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="loginPassword"
+                required
+              />
+            </div>
+            <button type="submit">Login</button>
+            <div class="form-links">
+              <a href="#" id="showForgotPassword">Forgot Password?</a>
+              <p>
+                Don't have an account?
+                <a href="#" id="showSignup">Create Account</a>
+              </p>
+            </div>
+          </form>
+        </div>
+
+        <!-- Signup Form -->
+        <div id="signupForm" class="auth-form" style="display: none">
+          <h2>Create Account</h2>
+          <form>
+            <div class="form-group">
+              <label for="signupEmail" class="form-label">Email address</label>
+              <input
+                type="email"
+                class="form-control"
+                id="signupEmail"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="signupPassword" class="form-label">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="signupPassword"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="confirmPassword" class="form-label"
+                >Confirm Password</label
+              >
+              <input
+                type="password"
+                class="form-control"
+                id="confirmPassword"
+                required
+              />
+            </div>
+            <button type="submit">Sign Up</button>
+            <div class="form-links">
+              <p>
+                Already have an account? <a href="#" id="showLogin">Login</a>
+              </p>
+            </div>
+          </form>
+        </div>
+
+        <!-- Forgot Password Form -->
+        <div id="forgotPasswordForm" class="auth-form" style="display: none">
+          <h2>Reset Password</h2>
+          <form>
+            <div class="form-group">
+              <label for="resetEmail" class="form-label">Email address</label>
+              <input
+                type="email"
+                class="form-control"
+                id="resetEmail"
+                required
+              />
+            </div>
+            <button type="submit">Reset Password</button>
+            <div class="form-links">
+              <a href="#" id="backToLogin">Back to Login</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
+    <script src="script/utils.js"></script>
+    <script src="script/toast.js"></script>
+    <script src="script/form.js"></script>
+    <script src="script/signup.js"></script>
+    <script src="script/login.js"></script>
+    <script src="script/forgot-password.js"></script>
+    <script src="script/booking.js"></script>
+  </body>
+</html>

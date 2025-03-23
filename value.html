@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="styles/styles.css" />
+
+    <style>
+      .value {
+        padding-top: 100px;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: auto;
+      }
+
+      .fare_class_wrapper {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        margin-top: 40px;
+      }
+
+      .fare_class_box {
+        background-color: #fff;
+        border-radius: 12px;
+        box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+        text-align: center;
+        padding: 30px 0px;
+        font-size: 25px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="container">
+        <a class="navbar-brand" href="#">Auth System</a>
+        <div class="nav-right">
+          <span id="userEmail" style="display: none"></span>
+          <button
+            id="logoutBtn"
+            class="btn-outline-danger"
+            style="display: none"
+          >
+            Logout
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Toast Container -->
+    <div class="toast-container">
+      <div id="notificationToast" class="toast" role="alert">
+        <div class="toast-header">
+          <strong id="toastTitle">Notification</strong>
+          <button type="button" class="btn-close" aria-label="Close">×</button>
+        </div>
+        <div class="toast-body" id="toastMessage"></div>
+      </div>
+    </div>
+
+    <!-- Auth Forms Wrapper (hidden by default) -->
+    <div id="authFormsWrapper" style="display: none"></div>
+
+    <div class="value">
+      <div class="container">
+        <div class="fare_class">
+          <h2>Select your fare class</h2>
+          <div class="fare_class_wrapper">
+            <div class="fare_class_box">
+              <p>Value + $0</p>
+            </div>
+            <div class="fare_class_box">
+              <p>Flex + 5%</p>
+            </div>
+            <div class="fare_class_box">
+              <p>Premium + 10%</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="fare_class">
+          <h2>Add-ons and services</h2>
+          <div class="fare_class_wrapper">
+            <div class="fare_class_box">
+              <p>Catering + $200</p>
+            </div>
+            <div class="fare_class_box">
+              <p>Ground Transfers + 5%</p>
+            </div>
+            <div class="fare_class_box">
+              <p>De-icing Insurance + 5%</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="fare_class">
+          <h2>Choose to Crowdsource Your Private Jet Flight</h2>
+          <div class="fare_class_wrapper">
+            <div class="fare_class_box">
+              <p>Crowdsource</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
