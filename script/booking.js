@@ -34,7 +34,11 @@ document.addEventListener("DOMContentLoaded", () => {
             type: "market",
             aircraftid: "1532651018760x276169315074179070",
             flightrequestid: "1742638124789x777900706104506600",
-            price: "14867200",
+            fare_class: "fare_class",
+            catering: "yes",
+            groundtransfers: "yes",
+            de_icinginsurance: "no",
+            croudsource: "yes",
           }),
         }
       );
@@ -60,5 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "An error occurred during booking request. Please try again.";
       toast.show();
     }
+
+    window.location.href = "natural.html";
   });
 });
